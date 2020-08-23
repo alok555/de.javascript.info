@@ -168,10 +168,9 @@ Later in this chapter we'll study more regular expressions, walk through more ex
 
 Full information about the methods is given in the article <info:regexp-methods>.
 
-## Summary
+## Zusammenfassung
 
-- A regular expression consists of a pattern and optional flags: `pattern:g`, `pattern:i`, `pattern:m`, `pattern:u`, `pattern:s`, `pattern:y`.
-- Without flags and special symbols  (that we'll study later), the search by a regexp is the same as a substring search.
-- The method `str.match(regexp)` looks for matches: all of them if there's `pattern:g` flag, otherwise, only the first one.
-- The method `str.replace(regexp, replacement)` replaces matches found using `regexp` with `replacement`: all of them if there's `pattern:g` flag, otherwise only the first one.
-- The method `regexp.test(str)` returns `true` if there's at least one match, otherwise, it returns `false`.
+- Ein regulärer Ausdruck besteht aus einem Muster und optionalen Flags: muster:g", "muster:i", "muster:m", "muster:u", "muster:s", "muster:y".
+- Ohne Flags und Sonderzeichen (die wir später untersuchen werden) ist die Suche mit einem Regexp dasselbe wie eine Teilzeichenfolgesuche.- Die Methode `str.match(regexp)` sucht nach übereinstimmenden Zeichenfolgen: alle, wenn es das Flag `pattern:g` gibt, andernfalls nur das erste.
+- Die Methode `str.replace(regexp, replacement)` ersetzt gefundene Treffer, die mit `regexp` gefunden wurden, durch `replacement`: alle, wenn das Flag `pattern:g` vorhanden ist, andernfalls nur die erste.
+- Die Methode `regexp.test(str)` ergibt `true`, wenn es mindestens eine Übereinstimmung gibt, andernfalls wird `false` ausgegeben.
