@@ -14,7 +14,7 @@ Die "lange" Syntax:
 
 ````js
 regexp = neue RegExp ("Muster", "Flags");
-```
+````
 
 Und das "kurze", mit Schrägstrichen `"/"/"`":
 
