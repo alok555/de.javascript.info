@@ -1,40 +1,40 @@
-# Patterns and flags
+# Muster und Flaggen
 
-Regular expressions are patterns that provide a powerful way to search and replace in text.
+Reguläre Ausdrücke sind Muster, die eine leistungsfähige Möglichkeit zum Suchen und Ersetzen im Text bieten.
 
-In JavaScript, they are available via the [RegExp](mdn:js/RegExp) object, as well as being integrated in methods of strings.
+In JavaScript sind sie sowohl über das Objekt [RegExp](mdn:js/RegExp) verfügbar als auch in Methoden von Zeichenketten integriert.
 
-## Regular Expressions
+## Reguläre Ausdrücke
 
-A regular expression (also "regexp", or just "reg") consists of a *pattern* and optional *flags*.
+Ein regulärer Ausdruck (auch "regexp", oder einfach "reg") besteht aus einem *Muster* und optionalen *Flags*.
 
-There are two syntaxes that can be used to create a regular expression object.
+Es gibt zwei Syntaxen, die verwendet werden können, um ein Objekt für reguläre Ausdrücke zu erzeugen.
 
-The "long" syntax:
+Die "lange" Syntax:
 
-```js
-regexp = new RegExp("pattern", "flags");
+````js
+regexp = neue RegExp ("Muster", "Flags");
 ```
 
-And the "short" one, using slashes `"/"`:
+Und das "kurze", mit Schrägstrichen `"/"/"`":
 
 ```js
-regexp = /pattern/; // no flags
-regexp = /pattern/gmi; // with flags g,m and i (to be covered soon)
+regexp = /muster/; // keine Flags
+regexp = /muster/gmi; // mit den Flags g,m und i (wird demnächst behandelt)
 ```
 
-Slashes `pattern:/.../` tell JavaScript that we are creating a regular expression. They play the same role as quotes for strings.
+Schrägstriche `muster:/.../` teilen JavaScript mit, dass wir einen regulären Ausdruck erstellen. Sie spielen die gleiche Rolle wie Anführungszeichen für Zeichenketten.
 
-In both cases `regexp` becomes an instance of the built-in `RegExp` class.
+In beiden Fällen wird `regexp` eine Instanz der eingebauten Klasse `RegExp`.
 
-The main difference between these two syntaxes is that pattern using slashes `/.../` does not allow for expressions to be inserted (like string template literals with `${...}`). They are fully static.
+Der Hauptunterschied zwischen diesen beiden Syntaxen besteht darin, dass Muster mit Schrägstrichen `/.../` es nicht erlauben, Ausdrücke einzufügen (wie String-Template-Literale mit `${...}`). Sie sind vollständig statisch.
 
-Slashes are used when we know the regular expression at the code writing time -- and that's the most common situation. While `new RegExp`, is more often used when we need to create a regexp "on the fly" from a dynamically generated string. For instance:
+Schrägstriche werden verwendet, wenn wir den regulären Ausdruck zum Zeitpunkt des Schreibens des Codes kennen -- und das ist die häufigste Situation. Während `neue RegExp` häufiger verwendet wird, wenn wir "on the fly" einen regulären Ausdruck aus einer dynamisch generierten Zeichenkette erzeugen müssen. Zum Beispiel:
 
 ```js
-let tag = prompt("What tag do you want to find?", "h2");
+let tag = Eingabeaufforderung ("Welchen Tag möchten Sie finden?", "h2");
 
-let regexp = new RegExp(`<${tag}>`); // same as /<h2>/ if answered "h2" in the prompt above
+let regexp = new RegExp(`<${tag}>`); // wie /<h2>/, wenn in der obigen Eingabeaufforderung mit "h2" geantwortet wurde
 ```
 
 ## Flags
