@@ -145,7 +145,7 @@ Das zweite Argument ist die Zeichenkette `Ersatz`. Wir können darin spezielle Z
 |`$'`| fügt einen Teil der Zeichenkette nach dem Spiel ein
 |`$n`||wenn `n` eine 1-2-stellige Zahl ist, dann fügt sie den Inhalt der n-ten Klammer ein, mehr dazu im Kapitel <info:regexp-groups>|
 |`$<name>`| fügt den Inhalt der Klammern mit dem angegebenen `Namen` ein, mehr dazu im Kapitel <info:regexp-groups>|
-|`$$$`| fügt das Zeichen `$` | ein
+|`$$`| fügt das Zeichen `$` | ein
 
 Ein Beispiel mit `Muster:$&`:
 
