@@ -61,7 +61,7 @@ Es gibt nur 6 davon in JavaScript:
 `muster:y`
 : "Sticky"-Modus: Suche an der genauen Position im Text (mehr dazu im Kapitel <info:regexp-sticky>)
 
-````smart header="Colors"
+```smart header="Colors"
 Von hier an ist das Farbschema:
 
 - regexp -- `muster:rot`
