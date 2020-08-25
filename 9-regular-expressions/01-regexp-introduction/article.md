@@ -122,51 +122,51 @@ It has 3 working modes:
     }
     ```
 
-## Replacing: str.replace
+## Ersetzung: str.replace
 
-The method `str.replace(regexp, replacement)` replaces matches found using `regexp` in string `str` with `replacement` (all matches if there's flag `pattern:g`, otherwise, only the first one).
+Die Methode `str.replace(RegAusdrk, Ersetzung)` ersetzt Übereinstimmungen, die mit `RegAusdrk` in der Zeichenkette `str` gefunden wurden, durch `Ersetzung` (alle Übereinstimmungen, wenn es das Flag `muster:g` gibt, ansonsten nur die erste).
 
-For instance:
+Zum Beispiel:
 
 ```js run
-// no flag g
-alert( "We will, we will".replace(/we/i, "I") ); // I will, we will
+// keine Flagge g
+alert( "Wir werden, wir werden".replace(/we/i, "Sie") ); // Sie werden, sie werden
 
-// with flag g
-alert( "We will, we will".replace(/we/ig, "I") ); // I will, I will
+// mit Flagge g
+alert( "Wir werden, wir werden".replace(/we/ig, "Sie") ); // Sie werden, sie werden
 ```
 
-The second argument is the `replacement` string. We can use special character combinations in it to insert fragments of the match:
+Das zweite Argument ist die Zeichenkette `Ersatz`. Wir können darin spezielle Zeichenkombinationen verwenden, um Fragmente der Übereinstimmung einzufügen:
 
-| Symbols | Action in the replacement string |
+| Symbole | Aktion in der `Ersetzungszeichenkette |
 |--------|--------|
-|`$&`|inserts the whole match|
-|<code>$&#096;</code>|inserts a part of the string before the match|
-|`$'`|inserts a part of the string after the match|
-|`$n`|if `n` is a 1-2 digit number, then it inserts the contents of n-th parentheses, more about it in the chapter <info:regexp-groups>|
-|`$<name>`|inserts the contents of the parentheses with the given `name`, more about it in the chapter <info:regexp-groups>|
-|`$$`|inserts character `$` |
+|`$&`| fügt das ganze Spiel ein
+|<<code>$&#096;</code>| fügt einen Teil der Zeichenkette vor der Übereinstimmung ein|
+|`$'`| fügt einen Teil der Zeichenkette nach dem Spiel ein
+|`$n`||wenn `n` eine 1-2-stellige Zahl ist, dann fügt sie den Inhalt der n-ten Klammer ein, mehr dazu im Kapitel <info:regexp-groups>|
+|`$<name>`| fügt den Inhalt der Klammern mit dem angegebenen `Namen` ein, mehr dazu im Kapitel <info:regexp-groups>|
+|`$$$`| fügt das Zeichen `$` | ein
 
-An example with `pattern:$&`:
-
-```js run
-alert( "I love HTML".replace(/HTML/, "$& and JavaScript") ); // I love HTML and JavaScript
-```
-
-## Testing: regexp.test
-
-The method `regexp.test(str)` looks for at least one match, if found, returns `true`, otherwise `false`.
+Ein Beispiel mit `Muster:$&`:
 
 ```js run
-let str = "I love JavaScript";
-let regexp = /LOVE/i;
-
-alert( regexp.test(str) ); // true
+alert( "Ich liebe HTML".replace(/HTML/, "$& und JavaScript") ); // Ich liebe HTML und JavaScript
 ```
 
-Later in this chapter we'll study more regular expressions, walk through more examples, and also meet other methods.
+## Testen: regexp.test
 
-Full information about the methods is given in the article <info:regexp-methods>.
+Die Methode `regexp.test(str)` sucht nach mindestens einer Übereinstimmung, wenn sie gefunden wird, liefert `true` (wahr), andernfalls `false` (falsch).
+
+```js run
+let str = "Ich liebe JavaScript";
+let regexp = /LIEBE/i;
+
+alert( regexp.test(str) ); // true (wahr)
+```
+
+Später in diesem Kapitel werden wir mehr reguläre Ausdrücke studieren, durch weitere Beispiele gehen und auch andere Methoden kennen lernen.
+
+Vollständige Informationen über die Methoden finden Sie im Artikel <info:regexp-methods>.
 
 ## Zusammenfassung
 
