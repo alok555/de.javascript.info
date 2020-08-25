@@ -69,56 +69,56 @@ Von hier an ist das Farbschema:
 - Ergebnis -- `Übereinstimmung:grün`
 ```
 
-## Searching: str.match
+## Suche: str.match
 
-As mentioned previously, regular expressions are integrated with string methods.
+Wie bereits erwähnt, sind reguläre Ausdrücke in String-Methoden integriert.
 
-The method `str.match(regexp)` finds all matches of `regexp` in the string `str`.
+Die Methode `str.match(regexp)` findet alle Übereinstimmungen von `regexp` in der Zeichenkette `str`.
 
-It has 3 working modes:
+Sie hat 3 Arbeitsmodi:
 
-1. If the regular expression has flag `pattern:g`, it returns an array of all matches:
+1. Wenn der reguläre Ausdruck das Flag `muster:g` hat, gibt sie ein Array mit allen Übereinstimmungen zurück:
     ```js run
-    let str = "We will, we will rock you";
+    let str = "Wir werden, wir werden Sie schaukeln";
 
-    alert( str.match(/we/gi) ); // We,we (an array of 2 substrings that match)
+    alert( str.match(/we/gi) ); // We,we (ein Array aus 2 Teilzeichenketten, die übereinstimmen)
     ```
-    Please note that both `match:We` and `match:we` are found, because flag `pattern:i` makes the regular expression case-insensitive.
+    Bitte beachten Sie, dass sowohl `Übereinstimmung:Wir` als auch `Übereinstimmung:wir` gefunden werden, da das Kennzeichen `muster:i` den regulären Ausdruck case-insensitive macht.
 
-2. If there's no such flag it returns only the first match in the form of an array, with the full match at index `0` and some additional details in properties:
+2. Wenn es kein solches Kennzeichen gibt, gibt es nur die erste Übereinstimmung in der Form eines Arrays zurück, mit der vollständigen Übereinstimmung bei Index `0` und einigen zusätzlichen Details in den Eigenschaften:
     ```js run
-    let str = "We will, we will rock you";
+    let str = "Wir werden, wir werden Sie schaukeln";
 
-    let result = str.match(/we/i); // without flag g
+    let ergebnis = str.match(/we/i); // ohne Kennzeichen g
 
-    alert( result[0] );     // We (1st match)
-    alert( result.length ); // 1
+    alert( ergebnis[0] ); // Wir (1. Spiel)
+    alert( ergebnis.länge ); // 1
 
-    // Details:
-    alert( result.index );  // 0 (position of the match)
-    alert( result.input );  // We will, we will rock you (source string)
+    // Einzelheiten:
+    alert( ergebnis.index ); // 0 (Position des Spiels)
+    alert( ergebnis.input ); // Wir werden, wir werden Sie schaukeln (source string)
     ```
-    The array may have other indexes, besides `0` if a part of the regular expression is enclosed in parentheses. We'll cover that in the chapter  <info:regexp-groups>.
+    Das Array kann neben `0` noch andere Indizes haben, wenn ein Teil des regulären Ausdrucks in Klammern eingeschlossen ist. Wir werden das im Kapitel <info:regexp-groups> behandeln.
 
-3. And, finally, if there are no matches, `null` is returned (doesn't matter if there's flag `pattern:g` or not).
 
-    This a very important nuance. If there are no matches, we don't receive an empty array, but instead receive `null`. Forgetting about that may lead to errors, e.g.:
+3. Und schließlich, wenn es keine Übereinstimmungen gibt, wird `null` zurückgegeben (es spielt keine Rolle, ob es eine Kennzeichen `muster:g` gibt oder nicht).
+    Dies ist eine sehr wichtige Nuance. Wenn es keine Übereinstimmungen gibt, erhalten wir kein leeres Array, sondern stattdessen `null`. Das zu vergessen, kann zu Fehlern führen, z.B:
 
     ```js run
-    let matches = "JavaScript".match(/HTML/); // = null
+    let übereinstimmungen = "JavaScript".match(/HTML/); // = null
 
-    if (!matches.length) { // Error: Cannot read property 'length' of null
-      alert("Error in the line above");
+    if (! übereinstimmungen.length) { // Fehler: Die Eigenschaft 'length' von null kann nicht gelesen werden
+      alert ("Fehler in der obigen Zeile");
     }
     ```
 
-    If we'd like the result to always be an array, we can write it this way:
+    Wenn wir möchten, dass das Ergebnis immer ein Array ist, können wir es so schreiben:
 
     ```js run
-    let matches = "JavaScript".match(/HTML/)*!* || []*/!*;
+    let übereinstimmungen = "JavaScript".match(/HTML/)*!* || []*/!*;
 
-    if (!matches.length) {
-      alert("No matches"); // now it works
+    if (!übereinstimmungen.length) {
+      alert ("Keine Übereinstimmungen"); // jetzt funktioniert es
     }
     ```
 
