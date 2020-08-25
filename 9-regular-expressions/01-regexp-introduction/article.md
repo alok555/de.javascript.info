@@ -32,7 +32,7 @@ Der Hauptunterschied zwischen diesen beiden Syntaxen besteht darin, dass Muster 
 Schrägstriche werden verwendet, wenn wir den regulären Ausdruck zum Zeitpunkt des Schreibens des Codes kennen -- und das ist die häufigste Situation. Während `neue RegExp` häufiger verwendet wird, wenn wir "on the fly" einen regulären Ausdruck aus einer dynamisch generierten Zeichenkette erzeugen müssen. Zum Beispiel:
 
 ```js
-let tag = Eingabeaufforderung ("Welchen Tag möchten Sie finden?", "h2");
+let tag = prompt ("Welchen Tag möchten Sie finden?", "h2");
 
 let regexp = new RegExp(`<${tag}>`); // wie /<h2>/, wenn in der obigen Eingabeaufforderung mit "h2" geantwortet wurde
 ```
