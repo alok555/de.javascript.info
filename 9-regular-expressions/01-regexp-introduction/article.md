@@ -13,7 +13,7 @@ Es gibt zwei Syntaxen, die verwendet werden können, um ein Objekt für regulär
 Die "lange" Syntax:
 
 ````js
-regexp = neue RegExp ("Muster", "Flags");
+regexp = new RegExp ("Muster", "Flags");
 ````
 
 Und das "kurze", mit Schrägstrichen `"/"/"`":
