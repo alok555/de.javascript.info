@@ -1,4 +1,4 @@
-# Muster und Flaggen
+# Muster und Kennzeichen
 
 Reguläre Ausdrücke sind Muster, die eine leistungsfähige Möglichkeit zum Suchen und Ersetzen im Text bieten.
 
@@ -6,21 +6,21 @@ In JavaScript sind sie sowohl über das Objekt [RegExp](mdn:js/RegExp) verfügba
 
 ## Reguläre Ausdrücke
 
-Ein regulärer Ausdruck (auch "regexp", oder einfach "reg") besteht aus einem *Muster* und optionalen *Flags*.
+Ein regulärer Ausdruck (auch "regexp", oder einfach "reg") besteht aus einem *Muster* und optionalen *Kennzeichen*.
 
 Es gibt zwei Syntaxen, die verwendet werden können, um ein Objekt für reguläre Ausdrücke zu erzeugen.
 
 Die "lange" Syntax:
 
 ````js
-regexp = new RegExp ("Muster", "Flags");
+regexp = new RegExp ("Muster", "Kennzeichen");
 ````
 
 Und das "kurze", mit Schrägstrichen `"/"/"`":
 
 ```js
-regexp = /muster/; // keine Flags
-regexp = /muster/gmi; // mit den Flags g,m und i (wird demnächst behandelt)
+regexp = /muster/; // keine Kennzeichen
+regexp = /muster/gmi; // mit den Kennzeichen g,m und i (wird demnächst behandelt)
 ```
 
 Schrägstriche `muster:/.../` teilen JavaScript mit, dass wir einen regulären Ausdruck erstellen. Sie spielen die gleiche Rolle wie Anführungszeichen für Zeichenketten.
@@ -37,36 +37,36 @@ let tag = prompt ("Welchen Tag möchten Sie finden?", "h2");
 let regexp = new RegExp(`<${tag}>`); // wie /<h2>/, wenn in der obigen Eingabeaufforderung mit "h2" geantwortet wurde
 ```
 
-## Flags
+## Kennzeichen
 
-Regular expressions may have flags that affect the search.
+Reguläre Ausdrücke können Flags haben, die die Suche beeinflussen.
 
-There are only 6 of them in JavaScript:
+Es gibt nur 6 davon in JavaScript:
 
-`pattern:i`
-: With this flag the search is case-insensitive: no difference between `A` and `a` (see the example below).
+`muster:i`
+: Mit diesem Flag ist die Suche unabhängig von Groß- und Kleinschreibung: kein Unterschied zwischen `A` und `a` (siehe das Beispiel unten).
 
-`pattern:g`
-: With this flag the search looks for all matches, without it -- only the first match is returned.
+`muster:g`
+: Mit diesem Flag sucht die Suche nach allen Übereinstimmungen, ohne dieses Flag -- nur die erste Übereinstimmung wird zurückgegeben.
 
-`pattern:m`
-: Multiline mode (covered in the chapter <info:regexp-multiline-mode>).
+`muster:m` 
+: Mehrzeilenmodus (behandelt im Kapitel <info:regexp-mehrzeilenmodus>).
 
-`pattern:s`
-: Enables "dotall" mode, that allows a dot `pattern:.` to match newline character `\n` (covered in the chapter <info:regexp-character-classes>).
+`muster:s` : Mehrzeilenmodus
+: Aktiviert den "dotall"-Modus, der es einem Punkt `muster:.` erlaubt, mit einem Zeilenumbruchzeichen `\n` übereinzustimmen (behandelt im Kapitel <info:regexp-character-classes>).
 
-`pattern:u`
-: Enables full unicode support. The flag enables correct processing of surrogate pairs. More about that in the chapter <info:regexp-unicode>.
+`muster:u`
+: Aktiviert volle Unicode-Unterstützung. Das Flag ermöglicht die korrekte Verarbeitung von Surrogatpaaren. Mehr dazu im Kapitel <info:regexp-unicode>.
 
-`pattern:y`
-: "Sticky" mode: searching at the exact position in the text  (covered in the chapter <info:regexp-sticky>)
+`muster:y`
+: "Sticky"-Modus: Suche an der genauen Position im Text (mehr dazu im Kapitel <info:regexp-sticky>)
 
-```smart header="Colors"
-From here on the color scheme is:
+````smart header="Colors"
+Von hier an ist das Farbschema:
 
-- regexp -- `pattern:red`
-- string (where we search) -- `subject:blue`
-- result -- `match:green`
+- regexp -- `muster:rot`
+- Zeichenkette (wo wir suchen) -- `betreff:blau`
+- Ergebnis -- `Übereinstimmung:grün`
 ```
 
 ## Searching: str.match
@@ -124,15 +124,15 @@ It has 3 working modes:
 
 ## Ersetzung: str.replace
 
-Die Methode `str.replace(RegAusdrk, Ersetzung)` ersetzt Übereinstimmungen, die mit `RegAusdrk` in der Zeichenkette `str` gefunden wurden, durch `Ersetzung` (alle Übereinstimmungen, wenn es das Flag `muster:g` gibt, ansonsten nur die erste).
+Die Methode `str.replace(RegAusdrk, Ersetzung)` ersetzt Übereinstimmungen, die mit `RegAusdrk` in der Zeichenkette `str` gefunden wurden, durch `Ersetzung` (alle Übereinstimmungen, wenn es das Kennzeichen `muster:g` gibt, ansonsten nur die erste).
 
 Zum Beispiel:
 
 ```js run
-// keine Flagge g
+// keine Kennzeichen g
 alert( "Wir werden, wir werden".replace(/we/i, "Sie") ); // Sie werden, sie werden
 
-// mit Flagge g
+// mit Kennziechen g
 alert( "Wir werden, wir werden".replace(/we/ig, "Sie") ); // Sie werden, sie werden
 ```
 
@@ -170,7 +170,7 @@ Vollständige Informationen über die Methoden finden Sie im Artikel <info:regex
 
 ## Zusammenfassung
 
-- Ein regulärer Ausdruck besteht aus einem Muster und optionalen Flags: muster:g", "muster:i", "muster:m", "muster:u", "muster:s", "muster:y".
-- Ohne Flags und Sonderzeichen (die wir später untersuchen werden) ist die Suche mit einem Regexp dasselbe wie eine Teilzeichenfolgesuche.- Die Methode `str.match(regexp)` sucht nach übereinstimmenden Zeichenfolgen: alle, wenn es das Flag `pattern:g` gibt, andernfalls nur das erste.
-- Die Methode `str.replace(regexp, replacement)` ersetzt gefundene Treffer, die mit `regexp` gefunden wurden, durch `replacement`: alle, wenn das Flag `pattern:g` vorhanden ist, andernfalls nur die erste.
+- Ein regulärer Ausdruck besteht aus einem Muster und optionalen Kennzeichen: muster:g", "muster:i", "muster:m", "muster:u", "muster:s", "muster:y".
+- Ohne Kennzeichen und Sonderzeichen (die wir später untersuchen werden) ist die Suche mit einem Regexp dasselbe wie eine Teilzeichenfolgesuche.- Die Methode `str.match(regexp)` sucht nach übereinstimmenden Zeichenfolgen: alle, wenn es das Kennzeichen `pattern:g` gibt, andernfalls nur das erste.
+- Die Methode `str.replace(regexp, replacement)` ersetzt gefundene Treffer, die mit `regexp` gefunden wurden, durch `replacement`: alle, wenn das Kennzeichen `pattern:g` vorhanden ist, andernfalls nur die erste.
 - Die Methode `regexp.test(str)` ergibt `true`, wenn es mindestens eine Übereinstimmung gibt, andernfalls wird `false` ausgegeben.
