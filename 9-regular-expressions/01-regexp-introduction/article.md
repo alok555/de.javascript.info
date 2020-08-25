@@ -140,9 +140,9 @@ Das zweite Argument ist die Zeichenkette `Ersatz`. Wir können darin spezielle Z
 
 | Symbole | Aktion in der `Ersetzungszeichenkette |
 |--------|--------|
-|`$&`| fügt das ganze Spiel ein
+|`$&`| fügt die ganze Übereinstimmung ein
 |<<code>$&#096;</code>| fügt einen Teil der Zeichenkette vor der Übereinstimmung ein|
-|`$'`| fügt einen Teil der Zeichenkette nach dem Spiel ein
+|`$'`| fügt einen Teil der Zeichenkette nach der Übereinstimmung ein
 |`$n`||wenn `n` eine 1-2-stellige Zahl ist, dann fügt sie den Inhalt der n-ten Klammer ein, mehr dazu im Kapitel <info:regexp-groups>|
 |`$<name>`| fügt den Inhalt der Klammern mit dem angegebenen `Namen` ein, mehr dazu im Kapitel <info:regexp-groups>|
 |`$$`| fügt das Zeichen `$` | ein
