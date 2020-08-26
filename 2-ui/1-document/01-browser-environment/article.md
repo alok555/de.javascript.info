@@ -1,66 +1,66 @@
-# Browser environment, specs
+# Browser-Umgebung, Spezifikationen
 
-The JavaScript language was initially created for web browsers. Since then it has evolved and become a language with many uses and platforms.
+Die Sprache JavaScript wurde ursprünglich für Webbrowser entwickelt.  Seitdem hat sie sich weiterentwickelt und ist zu einer Sprache mit vielen Einsatzmöglichkeiten und Plattformen geworden.
 
-A platform may be a browser, or a web-server or another *host*, even a "smart" coffee machine, if it can run JavaScript. Each of them provides platform-specific functionality. The JavaScript specification calls that a *host environment*.
+Eine Plattform kann ein Browser sein, oder ein Web-Server oder ein anderer *Host*, sogar eine intelligente Kaffeemaschine, wenn sie JavaScript ausführen kann.  Jede von ihnen bietet plattformspezifische Funktionalität.  Die JavaScript-Spezifikation nennt das eine *Host-Umgebung*.
 
-A host environment provides own objects and functions additional to the language core. Web browsers give a means to control web pages. Node.js provides server-side features, and so on.
+Eine *Host-Umgebung* stellt zusätzlich zum Sprachkern eigene Objekte und Funktionen zur Verfügung.  Web-Browser bieten die Möglichkeit, Webseiten zu kontrollieren.  Node.js bietet serverseitige Funktionen usw.
 
-Here's a bird's-eye view of what we have when JavaScript runs in a web browser:
+Hier sehen Sie aus der Vogelperspektive, was wir haben, wenn JavaScript in einem Webbrowser ausgeführt wird:
 
 ![](windowObjects.svg)
 
-There's a "root" object called `window`. It has two roles:
+Es gibt ein "Wurzel"-Objekt namens `Fenster`. Es hat zwei Rollen:
 
-1. First, it is a global object for JavaScript code, as described in the chapter <info:global-object>.
-2. Second, it represents the "browser window" and provides methods to control it.
+1. Erstens ist es ein globales Objekt für JavaScript-Code, wie im Kapitel <info:global-object> beschrieben.
+2. Zweitens repräsentiert es das "Browser-Fenster" und stellt Methoden zu dessen Steuerung zur Verfügung.
 
-For instance, here we use it as a global object:
+Hier verwenden wir es zum Beispiel als globales Objekt:
 
 ```js run
-function sayHi() {
-  alert("Hello");
+function sagHi() {
+  alert ("Hallo");
 }
 
-// global functions are methods of the global object:
-window.sayHi();
+// Globale Funktionen sind Methoden des globalen Objekts:
+fenster. sagHi();
 ```
 
-And here we use it as a browser window, to see the window height:
+Und hier benutzen wir es als Browserfenster, um die Fensterhöhe zu sehen:
 
 ```js run
-alert(window.innerHeight); // inner window height
+alert(window.innerHeight); // innere Fensterhöhe
 ```
 
-There are more window-specific methods and properties, we'll cover them later.
+Es gibt weitere fensterspezifische Methoden und Eigenschaften, auf die wir später eingehen werden.
 
-## DOM (Document Object Model)
+## DOM (Dokument-Objektmodell)
 
-Document Object Model, or DOM for short, represents all page content as objects that can be modified.
+Document Object Model, kurz DOM, stellt den gesamten Seiteninhalt als Objekte dar, die modifiziert werden können.
 
-The `document` object is the main "entry point" to the page. We can change or create anything on the page using it.
+Das "Document"-Objekt ist der wichtigste "Einstiegspunkt" zur Seite. Mit ihm können wir alles auf der Seite ändern oder erstellen.
 
-For instance:
+Zum Beispiel
 ```js run
-// change the background color to red
-document.body.style.background = "red";
+// ändern Sie die Hintergrundfarbe in rot
+document.body.style.background = "red"; 
 
-// change it back after 1 second
+// ändern Sie es nach 1 Sekunde zurück
 setTimeout(() => document.body.style.background = "", 1000);
 ```
 
-Here we used `document.body.style`, but there's much, much more. Properties and methods are described in the specification: [DOM Living Standard](https://dom.spec.whatwg.org).
+Hier haben wir `document.body.style` verwendet, aber es gibt noch viel, viel mehr. Eigenschaften und Methoden sind in der Spezifikation beschrieben: [lebender Standard des DOM](https://dom.spec.whatwg.org).
 
-```smart header="DOM is not only for browsers"
-The DOM specification explains the structure of a document and provides objects to manipulate it. There are non-browser instruments that use DOM too.
+````smart header="DOM ist nicht nur für Browser"
+Die DOM-Spezifikation erklärt die Struktur eines Dokuments und stellt Objekte zur Verfügung, mit denen es manipuliert werden kann.  Es gibt auch Nicht-Browser-Instrumente, die DOM verwenden.
 
-For instance, server-side scripts that download HTML pages and process them can also use DOM. They may support only a part of the specification though.
+Beispielsweise können serverseitige Skripte, die HTML-Seiten herunterladen und verarbeiten, ebenfalls DOM verwenden. Sie unterstützen jedoch möglicherweise nur einen Teil der Spezifikation.
 ```
 
-```smart header="CSSOM for styling"
-There's also a separate specification, [CSS Object Model (CSSOM)](https://www.w3.org/TR/cssom-1/) for CSS rules and stylesheets, that explains how they are represented as objects, and how to read and write them.
+````smart header="CSSOM für das Styling"
+Es gibt auch eine separate Spezifikation, [CSS Objektmodell (CSSOM)] (https://www.w3.org/TR/cssom-1/) für CSS-Regeln und Stylesheets, die erklärt, wie sie als Objekte dargestellt werden und wie sie gelesen und geschrieben werden können.
 
-CSSOM is used together with DOM when we modify style rules for the document. In practice though, CSSOM is rarely required, because we rarely need to modify CSS rules from JavaScript (usually we just add/remove CSS classes, not modify their CSS rules), but that's also possible.
+CSSOM wird zusammen mit DOM verwendet, wenn wir Stilregeln für das Dokument ändern. In der Praxis wird CSSOM jedoch nur selten benötigt, da wir CSS-Regeln nur selten von JavaScript aus ändern müssen (normalerweise fügen wir nur CSS-Klassen hinzu/entfernen und ändern nicht ihre CSS-Regeln), aber auch das ist möglich.
 ```
 
 ## BOM (Browser Object Model)
