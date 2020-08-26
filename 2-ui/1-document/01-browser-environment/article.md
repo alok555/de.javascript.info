@@ -58,8 +58,7 @@ Es gibt auch Nicht-Browser-Instrumente, die DOM verwenden.
 Beispielsweise können serverseitige Skripte, die HTML-Seiten herunterladen und verarbeiten, ebenfalls DOM verwenden. 
 Sie unterstützen jedoch möglicherweise nur einen Teil der Spezifikation.
 
-
-### CSSOM für das Styling
+#### CSSOM für das Styling
 Es gibt auch eine separate Spezifikation, [CSS Objektmodell (CSSOM)](https://www.w3.org/TR/cssom-1/) für CSS-Regeln und Stylesheets, 
 die erklärt, wie sie als Objekte dargestellt werden und wie sie gelesen und geschrieben werden können.
 
@@ -67,51 +66,50 @@ CSSOM wird zusammen mit DOM verwendet, wenn wir Stilregeln für das Dokument än
 In der Praxis wird CSSOM jedoch nur selten benötigt, da wir CSS-Regeln nur selten von JavaScript aus ändern müssen 
 (normalerweise fügen wir nur CSS-Klassen hinzu/entfernen und ändern nicht ihre CSS-Regeln), aber auch das ist möglich.
 
-## BOM (Browser Object Model)
+## BOM (Browser-Objektmodell)
 
-The Browser Object Model (BOM) represents additional objects provided by the browser (host environment) for working with everything except the document.
+Das Browser-Objektmodell (BOM) stellt zusätzliche Objekte dar, die vom Browser (Host-Umgebung) für die Arbeit mit allem außer dem Dokument (`document`) zur Verfügung gestellt werden.
 
-For instance:
+Zum Beispiel:
 
-- The [navigator](mdn:api/Window/navigator) object provides background information about the browser and the operating system. There are many properties, but the two most widely known are: `navigator.userAgent` -- about the current browser, and `navigator.platform` -- about the platform (can help to differ between Windows/Linux/Mac etc).
-- The [location](mdn:api/Window/location) object allows us to read the current URL and can redirect the browser to a new one.
+- Das Objekt [navigator](mdn:api/Window/navigator) liefert Hintergrundinformationen über den Browser und das Betriebssystem. Es gibt viele Eigenschaften, aber die beiden bekanntesten sind`navigator.userAgent` -- über den aktuellen Browser, und `navigator.platform` -- über die Plattform (hier müssen wir uns der Unterschiede zwischen Windows/Linux/Mac etc. bewusst sein).
+- Das [location](mdn:api/Window/location)-Objekt erlaubt es uns, die aktuelle URL zu lesen und kann den Browser auf eine neue umleiten.
 
-Here's how we can use the `location` object:
+So können wir das `location'-Objekt verwenden:
 
 ```js run
-alert(location.href); // shows current URL
-if (confirm("Go to Wikipedia?")) {
-  location.href = "https://wikipedia.org"; // redirect the browser to another URL
+alert(location.href); // zeigt die aktuelle URL
+if (confirm("Gehe zu Wikipedia?")) {
+  location.href = "https://wikipedia.org"; // den Browser auf eine andere URL umleiten
 }
 ```
 
-Functions `alert/confirm/prompt` are also a part of BOM: they are directly not related to the document, but represent pure browser methods of communicating with the user.
+Auch die Funktionen `alert/confirm/prompt` sind Teil der BOM: Sie stehen nicht direkt mit `document` in Verbindung, sondern stellen reine Browser-Methoden zur Kommunikation mit dem Benutzer dar.
 
-```smart header="Specifications"
-BOM is the part of the general [HTML specification](https://html.spec.whatwg.org).
+#### Spezifikationen
+BOM ist der Teil der allgemeinen [HTML-Spezifikation](https://html.spec.whatwg.org).
 
-Yes, you heard that right. The HTML spec at <https://html.spec.whatwg.org> is not only about the "HTML language" (tags, attributes), but also covers a bunch of objects, methods and browser-specific DOM extensions. That's "HTML in broad terms". Also, some parts have additional specs listed at <https://spec.whatwg.org>.
-```
+Ja, das haben Sie richtig gehört. In der HTML-Spezifikation unter <https://html.spec.whatwg.org> geht es nicht nur um die "HTML-Sprache" (Tags, Attribute), sondern auch um eine Reihe von Objekten, Methoden und browserspezifischen DOM-Erweiterungen.  Das ist "HTML in groben Zügen".  Einige Teile haben auch zusätzliche Spezifikationen, die unter <https://spec.whatwg.org> aufgeführt sind.
 
-## Summary
+## Zusammenfassung
 
-Talking about standards, we have:
+Wenn wir über Standards sprechen, haben wir das:
 
-DOM specification
-: Describes the document structure, manipulations and events, see <https://dom.spec.whatwg.org>.
+DOM-Spezifikation
+: Beschreibt die Dokumentstruktur, Bearbeitungen und Ereignisse, siehe <https://dom.spec.whatwg.org>.
 
-CSSOM specification
-: Describes stylesheets and style rules, manipulations with them and their binding to documents, see <https://www.w3.org/TR/cssom-1/>.
+CSSOM-Spezifikation
+: Beschreibt Stylesheets und Stilregeln, Bearbeitungen mit ihnen und ihre Bindung an Dokumente, siehe <https://www.w3.org/TR/cssom-1/>.
 
-HTML specification
-: Describes the HTML language (e.g. tags) and also the BOM (browser object model) -- various browser functions: `setTimeout`, `alert`, `location` and so on, see <https://html.spec.whatwg.org>. It takes the DOM specification and extends it with many additional properties and methods.
+HTML-Spezifikation
+: Beschreibt die HTML-Sprache (z.B. Tags) und auch die BOM (Browser-Objektmodell) -- verschiedene Browser-Funktionen: `setTimeout`, `alert`, `location` und so weiter, siehe <https://html.spec.whatwg.org>. Es nimmt die DOM-Spezifikation und erweitert sie um viele zusätzliche Eigenschaften und Methoden.
 
-Additionally, some classes are described separately at <https://spec.whatwg.org/>.
+Zusätzlich werden einige Klassen separat unter <https://spec.whatwg.org/> beschrieben.
 
-Please note these links, as there's so much stuff to learn it's impossible to cover and remember everything.
+Bitte beachten Sie diese Links, da es so viel zu lernen gibt, dass es unmöglich ist, alles abzudecken und sich alles zu merken.
 
-When you'd like to read about a property or a method, the Mozilla manual at <https://developer.mozilla.org/en-US/search> is also a nice resource, but the corresponding spec may be better: it's more complex and longer to read, but will make your fundamental knowledge sound and complete.
+Wenn Sie über eine Eigenschaft oder eine Methode lesen möchten, ist auch das Mozilla-Handbuch unter <https://developer.mozilla.org/en-US/search> eine nette Ressource, aber die entsprechende Spezifikation ist vielleicht besser: sie ist komplexer und länger zu lesen, aber sie wird Ihr Grundwissen solide und vollständig machen.
 
-To find something, it's often convenient to use an internet search "WHATWG [term]" or "MDN [term]", e.g <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
+Um etwas zu finden, ist es oft bequem, eine Internetsuche "WHATWG [Begriff]" oder "MDN [Begriff]" zu benutzen, z.B. <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
 
-Now we'll get down to learning DOM, because the document plays the central role in the UI.
+Nun kommen wir zum Lernen von DOM, denn das Dokument spielt die zentrale Rolle in der Benutzeroberfläche.
