@@ -87,7 +87,7 @@ if (confirm("Gehe zu Wikipedia?")) {
 Auch die Funktionen `alert/confirm/prompt` sind Teil der BOM: Sie stehen nicht direkt mit `document` in Verbindung, sondern stellen reine Browser-Methoden zur Kommunikation mit dem Benutzer dar.
 
 #### Spezifikationen
-BOM ist der Teil der allgemeinen [HTML-Spezifikation](https://html.spec.whatwg.org).
+BOM ist ein Teil der allgemeinen [HTML-Spezifikation](https://html.spec.whatwg.org).
 
 Ja, das haben Sie richtig gehört. In der HTML-Spezifikation unter <https://html.spec.whatwg.org> geht es nicht nur um die "HTML-Sprache" (Tags, Attribute), sondern auch um eine Reihe von Objekten, Methoden und browserspezifischen DOM-Erweiterungen.  Das ist "HTML in groben Zügen".  Einige Teile haben auch zusätzliche Spezifikationen, die unter <https://spec.whatwg.org> aufgeführt sind.
 
