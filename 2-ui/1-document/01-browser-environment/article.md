@@ -58,9 +58,12 @@ Beispielsweise können serverseitige Skripte, die HTML-Seiten herunterladen und 
 ```
 
 ```smart header="CSSOM für das Styling"
-Es gibt auch eine separate Spezifikation, [CSS Objektmodell (CSSOM)] (https://www.w3.org/TR/cssom-1/) für CSS-Regeln und Stylesheets, die erklärt, wie sie als Objekte dargestellt werden und wie sie gelesen und geschrieben werden können.
+Es gibt auch eine separate Spezifikation, [CSS Objektmodell (CSSOM)] (https://www.w3.org/TR/cssom-1/) für CSS-Regeln und Stylesheets, 
+die erklärt, wie sie als Objekte dargestellt werden und wie sie gelesen und geschrieben werden können.
 
-CSSOM wird zusammen mit DOM verwendet, wenn wir Stilregeln für das Dokument ändern. In der Praxis wird CSSOM jedoch nur selten benötigt, da wir CSS-Regeln nur selten von JavaScript aus ändern müssen (normalerweise fügen wir nur CSS-Klassen hinzu/entfernen und ändern nicht ihre CSS-Regeln), aber auch das ist möglich.
+CSSOM wird zusammen mit DOM verwendet, wenn wir Stilregeln für das Dokument ändern. 
+In der Praxis wird CSSOM jedoch nur selten benötigt, da wir CSS-Regeln nur selten von JavaScript aus ändern müssen 
+(normalerweise fügen wir nur CSS-Klassen hinzu/entfernen und ändern nicht ihre CSS-Regeln), aber auch das ist möglich.
 ```
 
 ## BOM (Browser Object Model)
