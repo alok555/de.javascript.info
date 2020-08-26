@@ -51,20 +51,21 @@ setTimeout(() => document.body.style.background = "", 1000);
 
 Hier haben wir `document.body.style` verwendet, aber es gibt noch viel, viel mehr. Eigenschaften und Methoden sind in der Spezifikation beschrieben: [lebender Standard des DOM](https://dom.spec.whatwg.org).
 
-```smart header="DOM ist nicht nur für Browser"
-Die DOM-Spezifikation erklärt die Struktur eines Dokuments und stellt Objekte zur Verfügung, mit denen es manipuliert werden kann.  Es gibt auch Nicht-Browser-Instrumente, die DOM verwenden.
+### DOM ist nicht nur für Browser
+Die DOM-Spezifikation erklärt die Struktur eines Dokuments und stellt Objekte zur Verfügung, mit denen es manipuliert werden kann.  
+Es gibt auch Nicht-Browser-Instrumente, die DOM verwenden.
 
-Beispielsweise können serverseitige Skripte, die HTML-Seiten herunterladen und verarbeiten, ebenfalls DOM verwenden. Sie unterstützen jedoch möglicherweise nur einen Teil der Spezifikation.
-```
+Beispielsweise können serverseitige Skripte, die HTML-Seiten herunterladen und verarbeiten, ebenfalls DOM verwenden. 
+Sie unterstützen jedoch möglicherweise nur einen Teil der Spezifikation.
 
-```smart header="CSSOM für das Styling"
+
+### CSSOM für das Styling
 Es gibt auch eine separate Spezifikation, [CSS Objektmodell (CSSOM)](https://www.w3.org/TR/cssom-1/) für CSS-Regeln und Stylesheets, 
 die erklärt, wie sie als Objekte dargestellt werden und wie sie gelesen und geschrieben werden können.
 
 CSSOM wird zusammen mit DOM verwendet, wenn wir Stilregeln für das Dokument ändern. 
 In der Praxis wird CSSOM jedoch nur selten benötigt, da wir CSS-Regeln nur selten von JavaScript aus ändern müssen 
 (normalerweise fügen wir nur CSS-Klassen hinzu/entfernen und ändern nicht ihre CSS-Regeln), aber auch das ist möglich.
-```
 
 ## BOM (Browser Object Model)
 
